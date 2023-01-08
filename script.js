@@ -1,11 +1,17 @@
+const sizeSelector = 5;
 //Collect user input
 const inputField = document.getElementById("input");
 
 //Set gridsize to user input
 const inputButton = document.getElementById("button");
 inputButton.addEventListener("click", function() {
-    const sizeSelector = inputField.value;
-    loadDivs(sizeSelector);
+    let sizeSelector = inputField.value;
+    if(sizeSelector > 100) {
+        let reselection =  prompt("Please choose a number between 1 and 100.");
+        let sizeSelector = reselection;
+        loadDivs(sizeSelector);
+    } else (
+    loadDivs(sizeSelector));
 });
 
 function randomColor() {
@@ -46,3 +52,6 @@ function loadDivs(sizeSelector) {
     document.getElementById("container").style.gridTemplateRows = "repeat(" + sizeSelector + ", " + 1 + "fr)";
 };
 
+document.getElementById("reset").addEventListener("click", function() {
+    location.reload();
+})

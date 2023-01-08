@@ -4,18 +4,38 @@
     height: 960px;
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: repeat(10, 1fr);
+    margin: 30px;
 }
 
 #container > * {
     background-color: rgba(255, 0, 0, 0.342);
+    border-color: bisque;
+    border: 3px;
 }
 
 input, button {
     height: 50px;
     font-size: 40px;
-    margin-bottom: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
 }
 
-button {
-    margin-left: 5px;
+#button {
+    margin-left: 30px;
+    border-radius: 100%;
+    font-size: 24px;
+    background-color: rgba(8, 201, 8, 0.678);
+}
+
+input {
+    margin: 30px;
+}
+
+#reset {
+    border-radius: 100%;
+    font-size: 24px;
+    margin: 10px;
+    background-color: rgb(253, 43, 43);
 }
