@@ -1,43 +1,47 @@
-const sizeSelector = 33;
+//Collect user input
+const inputField = document.getElementById("input");
 
-function randomColor1() {
-    var x = Math.floor(Math.random() * 256);
-    var y = Math.floor(Math.random() * 256);
-    var z = Math.floor(Math.random() * 256);
-    var Color1 = "rgb(" + x + "," + y + "," + z + ")";
+//Set gridsize to user input
+const inputButton = document.getElementById("button");
+inputButton.addEventListener("click", function() {
+    const sizeSelector = inputField.value;
+    loadDivs(sizeSelector);
+});
+
+function randomColor() {
+    let x = Math.floor(Math.random() * 256);
+    let y = Math.floor(Math.random() * 256);
+    let z = Math.floor(Math.random() * 256);
+    let a = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
+    let c = Math.floor(Math.random() * 256);
+    let Color1 = "rgb(" + x + "," + y + "," + z + ")";
+    let Color2 = "rgb(" + a + "," + b + "," + c + ")";
     return Color1;
-    };
-
-function randomColor2() {
-    var z = Math.floor(Math.random() * 256);
-    var x = Math.floor(Math.random() * 256);
-    var y = Math.floor(Math.random() * 256);
-    var Color2 = "rgb(" + x + "," + y + "," + z + ")";
     return Color2;
     };
 
-function loadDivs() {
+function loadDivs(sizeSelector) {
 
     for(let i = 0; i < (sizeSelector*sizeSelector); i++) {
         //Create, name, and append divs
-        const newContent = document.createElement("div");
+        let newContent = document.createElement("div");
         newContent.id = 'div' + i;
-        const divTarget = document.getElementById("container");
+        let divTarget = document.getElementById("container");
         divTarget.appendChild(newContent);
-
         //Randomize color on mouse-in
-        const gridSelector = document.getElementById("div" + i);
+        let gridSelector = document.getElementById("div" + i);
         gridSelector.addEventListener("mouseover", function() {
-            gridSelector.style.backgroundColor = randomColor1();
+            gridSelector.style.backgroundColor = randomColor();
         });
         //Randomize color on mouse-out
         gridSelector.addEventListener("mouseout", function() {
-            gridSelector.style.backgroundColor = randomColor2();
+            gridSelector.style.backgroundColor = randomColor();
         });
     
         
     }
-    //Modify grid columns count based on selected size
+    //Modify grid column and row count based on selected size
     document.getElementById("container").style.gridTemplateColumns = "repeat(" + sizeSelector + ", " + 1 + "fr)";
     document.getElementById("container").style.gridTemplateRows = "repeat(" + sizeSelector + ", " + 1 + "fr)";
 };
