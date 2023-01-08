@@ -1,9 +1,4 @@
-//load div button event listener
-const loadButton = document.querySelector('#load');
-loadButton.addEventListener('click', loadDivs);
 const sizeSelector = 16;
-
-
 
 function loadDivs() {
 
