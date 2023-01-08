@@ -38,6 +38,8 @@ input, button {
 
 input {
     margin: 30px;
+    border-color: rgb(204, 190, 0);
+    color:rgb(37, 37, 37);
 }
 
 #reset {
